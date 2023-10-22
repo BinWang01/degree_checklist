@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 class="display-6 mb-4">Area Course List</h1>
+<a href="/areacourses/new" class="btn btn-primary mb-3">Create Area Course</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Fiscal Year</th>
+            <th scope="col">Area Name</th>
+            <th scope="col">Course Name</th>
+            <th scope="col">Optional</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for areacourse in areacourses %}
+        <tr>
+            <td>{{ areacourse.fiscal_year }}</td>
+            <td>{{ areacourse.area.area_name }}</td>
+            <td>{{ areacourse.course.course_name }}</td>
+            <td>{{ areacourse.optional|yesno:"Y,N" }}</td>
+            <td><a href="/areacourses/{{ areacourse.id }}" class="btn btn-warning">Edit</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

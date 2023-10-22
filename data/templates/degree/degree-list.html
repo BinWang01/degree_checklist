@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 class="display-6 mb-4">Degree List</h1>
+<a href="/degrees/new" class="btn btn-primary mb-3">Create Degree</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Website</th>
+            <th scope="col">Description</th>
+            <th scope="col">Online</th>
+            <th scope="col">Hours</th>
+            <th scope="col">Department</th>
+            <th scope="col">College</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for degree in degrees %}
+        <tr>
+            <td>{{ degree.degree_name }}</td>
+            <td>{{ degree.degree_website }}</td>
+            <td>{{ degree.degree_description }}</td>
+            <td>{{ degree.online_degrree|yesno:"Y,N" }}</td>
+            <td>{{ degree.total_hours }}</td>
+            <td>{{ degree.department.department_name }}</td>
+            <td>{{ degree.department.college.college_name }}</td>
+            <td><a href="/degrees/{{ degree.id }}" class="btn btn-warning">Edit</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

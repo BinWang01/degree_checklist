@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 class="display-6 mb-4">Area List</h1>
+<a href="/areas/new" class="btn btn-primary mb-3">Create Area</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Hours</th>
+            <th scope="col">Degree</th>
+            <th scope="col">Department</th>
+            <th scope="col">College</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for area in areas %}
+        <tr>
+            <td>{{ area.area_name }}</td>
+            <td>{{ area.area_description }}</td>
+            <td>{{ area.total_hours }}</td>
+            <td>{{ area.degree.degree_name }}</td>
+            <td>{{ area.degree.department.department_name }}</td>
+            <td>{{ area.degree.department.college.college_name }}</td>
+            <td><a href="/areas/{{ area.id }}" class="btn btn-warning">Edit</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
