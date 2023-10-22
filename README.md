@@ -1,4 +1,4 @@
-# E-COMM-WEB-DEV-ASSIGNMENT-2
+# Degree Checklist
 
 ### Natural Language statements
 Record colleges, departments, degrees, areas (of requirements), and courses to fulfill requirements of areas for each fiscal year
